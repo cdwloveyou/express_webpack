@@ -72,5 +72,7 @@ if(process.env.NODE_ENV !== 'production'){
 }
 
 hot中间件需要在webpack配置文件的entry属性中引入hot组件的代理，如：
-entry:['webpack-hot-middleware/client','./src/index.js'],并在plugins中引入热更新插件，
-
+entry:['webpack-hot-middleware/client','./src/index.js'],并在plugins中引入热更新插件，并在入口文件中加入如下代码：
+if (module.hot) {  
+    module.hot.accept();
+}
